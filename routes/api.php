@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\HRController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,23 +20,23 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::middleware(['role:hr_manager'])->group(function(){
         
-        Route::get('/{id}',[UserController::class,'show']);
-        Route::get('/list',[UserController::class,'list']);
-        Route::post('/change-status',[UserController::class,'list']);
-        Route::post('/register',[UserController::class,'store']);
+        Route::post('/user',[HRController::class,'store'])->name('register');
+        Route::get('/employee',[HRController::class,'index'])->name('list.employee');
+        Route::get('/employee/{id}',[HRController::class,'show'])->name('show.user');
+        Route::put('/change-status/{id}',[HRController::class,'changeStatus'])->name('status.update.employee');
         
     });
 
     Route::middleware(['role:employee'])->group(function(){
         
-        Route::post('/update-contact',[UserController::class,'updateContact']);
+        Route::put('/contact/{id}',[EmployeeController::class,'updateContact'])->name('update.contact');
     
     });
 
-    Route::post('/logout',[UserController::class,'logout']);
+    Route::post('/logout',[UserController::class,'logout'])->name('logout');
     
 });
 
-Route::post('/login',[UserController::class,'logIn']);
+Route::post('/login',[UserController::class,'logIn'])->name('login');
 
 
