@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::middleware(['role:hr_manager'])->group(function(){
         
-        Route::post('/user',[HRController::class,'store'])->name('register');
+        Route::post('/',[HRController::class,'store'])->name('register');
         Route::get('/employee',[HRController::class,'index'])->name('list.employee');
         Route::get('/employee/{id}',[HRController::class,'show'])->name('show.user');
         Route::put('/change-status/{id}',[HRController::class,'changeStatus'])->name('status.update.employee');
