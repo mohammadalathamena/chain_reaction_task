@@ -12,7 +12,7 @@ class EmployeeController extends UserController
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return json
      */
     public function updateContact(Request $request,int $id)
     {

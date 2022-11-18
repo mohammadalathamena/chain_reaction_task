@@ -14,7 +14,7 @@ class HRController extends UserController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\EmployeeCollection
      */
     public function index()
     {
@@ -25,8 +25,8 @@ class HRController extends UserController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Request\CreateUserRequest  $request
+     * @return \App\Http\Resource\CreateUserResource
      */
     public function store(CreateUserRequest $request)
     {
@@ -57,6 +57,12 @@ class HRController extends UserController
     
     }
 
+    /**
+     * get user by id
+     * 
+     * @param int $id
+     * @return \App\Http\Resources\UserResource 
+     */
     public function show(int $id)
     {
         $employee = User::find($id);
@@ -69,6 +75,11 @@ class HRController extends UserController
 
     }
 
+    /**
+     * change user status that have 'employee' type 
+     * 
+     * @param int $id
+     */
     public function changeStatus(int $id)
     {
 

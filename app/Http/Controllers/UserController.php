@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-
+    /**
+     * logout from system
+     * 
+     * @param \Illuminate\Http\Request $request
+     */
     public function logout(Request $request)
     {
         try {
@@ -29,6 +33,13 @@ class UserController extends Controller
         }
     }
 
+
+    /**
+     * login to system 
+     * 
+     * @param \App\Http\Request\LogInRequest $request
+     * @return json
+     */
     public function logIn(LogInRequest $request)
     {
         $user = User::where('email',$request->email)->first();
@@ -55,6 +66,11 @@ class UserController extends Controller
 
     }
 
+    /**
+     * return user not found as a json with status code 404
+     * 
+     * @return json
+     */
     protected static function userNotFound()
     {
         return response()->json([
