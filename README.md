@@ -80,7 +80,7 @@ php artisan serve
 | api/employee      | GET      |list all employee |HR Manager|
 | api/employee/{id} | GET      |    show employee by id |HR Manager|
 | api/change-status/{id} | PUT      |    active and deactive employee by id |HR Manager |
-| api/contact/{id} | PUT      |    change employee contact details  |Employee|
+| api/contact | PUT      |    change employee contact details  |Employee|
 | api/login | POST      |    log in to system  |All|
 | api/logout | POST      |log out from system |All|
 
