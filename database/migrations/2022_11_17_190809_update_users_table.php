@@ -16,8 +16,8 @@ return new class extends Migration
         schema::table('users',function(Blueprint $table){
             $table->text('contact_details');
             $table->string('job_title');
-            $table->enum('type',['hr_manger','employee']);
-            $table->integer('status')->nullable();
+            $table->enum('type',['hr_manager','employee']);
+            $table->boolean('status')->default(1);
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
