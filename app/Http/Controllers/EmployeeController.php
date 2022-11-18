@@ -2,26 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\updateContact;
 use App\Models\User;
-use Illuminate\Http\Request;
+
 
 class EmployeeController extends UserController
 {
-        /**
+    
+    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\updateContact  $request
      * @param  int  $id
      * @return json
      */
-    public function updateContact(Request $request,int $id)
+    public function updateContact(updateContact $request,int $id)
     {
+
         $user = User::find($id);
         if (!$user){
-
+            
             return $this->userNotFound();
-
+            
         }
+
+        $isMyId = auth('sanctum')->id() === $id;
+        
+        if(!$isMyId)
+            return response()->json([
+                'message'=>'you are not authorized'
+            ],200);
+
         
         $user->contact_details = $request->contact_details ;
         $user->save();
