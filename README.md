@@ -16,7 +16,7 @@
 
 ### 1- run create database command 
 ```sh
-echo "create database <Your Database Name , for example chain_reaction > ;" | mysql -u <Your Database User Name> -p 
+echo "create database your_database_name ;" | mysql -u root -p 
 ```
 ### 1- copy .env.example and edit it 
 ```sh
@@ -76,7 +76,7 @@ php artisan serve
 
 | Route        | method           | details  |how can use api  |
 | ------------- |:-------------:| -----------------:|-----------------:|
-| api/      | POST | store new user |HR Manager|
+| api/hr      | POST | store new user |HR Manager|
 | api/employee      | GET      |list all employee |HR Manager|
 | api/employee/{id} | GET      |    show employee by id |HR Manager|
 | api/change-status/{id} | PUT      |    active and deactive employee by id |HR Manager |

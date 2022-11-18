@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
+        $user = User::updateOrCreate(['email'=>'hr_email@chainReaction.com'], [
             'name'=>'firstHr',
             'password'=>bcrypt('asd123') ,
             'email'=>'hr_email@chainReaction.com',

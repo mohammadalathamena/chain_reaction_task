@@ -24,18 +24,18 @@ class PermissionSeeder extends Seeder
             'change_employee_status',
            
         ];
-        $hrRole = Role::create(['name'=>'hr_manager']);
+        $hrRole = Role::updateOrCreate(['name'=>'hr_manager']);
         foreach ($hrManagerPermissions as $value) {
             
-            $hrPermission = Permission::create(['name'=>$value]);
+            $hrPermission = Permission::updateOrCreate(['name'=>$value]);
             $hrRole->givePermissionTo($hrPermission);
 
         }
         
 
 
-        $employeeRole = Role::create(['name'=>'employee']);
-        $employeePermission = Permission::create(['name'=>'update_contact']);
+        $employeeRole = Role::updateOrCreate(['name'=>'employee']);
+        $employeePermission = Permission::updateOrCreate(['name'=>'update_contact']);
         $employeeRole->givePermissionTo($employeePermission);
 
 

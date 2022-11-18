@@ -13,7 +13,9 @@ class updateContact extends FormRequest
      */
     public function authorize()
     {
+
         return true;
+        // return auth('sanctum')->id() === request()->id;
     }
 
     /**

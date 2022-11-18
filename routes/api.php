@@ -21,16 +21,16 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::middleware(['role:hr_manager'])->group(function(){
         
-        Route::post('/',[HRController::class,'store'])->name('register');
+        Route::post('/hr',[HRController::class,'store'])->name('register');
         Route::get('/employee',[HRController::class,'index'])->name('list.employee');
-        Route::get('/employee/{id}',[HRController::class,'show'])->name('show.user');
-        Route::put('/change-status/{id}',[HRController::class,'changeStatus'])->name('status.update.employee');
+        Route::get('/employee/{employee}',[HRController::class,'show'])->name('show.user');
+        Route::put('/change-status/{employee}',[HRController::class,'changeStatus'])->name('status.update.employee');
         
     });
 
     Route::middleware(['role:employee'])->group(function(){
         
-        Route::put('/contact/{id}',[EmployeeController::class,'updateContact'])->name('update.contact');
+        Route::put('/contact',[EmployeeController::class,'updateContact'])->name('update.contact');
     
     });
 

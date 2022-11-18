@@ -26,7 +26,7 @@ class CreateUserRequest extends FormRequest
     {
         
         return [
-            'name'=>['required','string','min:2','unique:users,name'],
+            'name'=>['required','string','min:2'],
             'password'=>['required','string','min:5'],
             'email'=>['required','string','min:5','email:rfc,dns','unique:users,email'],
             'contact_details'=>['required','string','min:10'],

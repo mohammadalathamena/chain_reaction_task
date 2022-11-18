@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('job_title');
             $table->enum('type',['hr_manager','employee']);
             $table->boolean('status')->default(1);
-            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->softDeletes();
         });
     }
 

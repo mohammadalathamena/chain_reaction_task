@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\updateContact;
 use App\Models\User;
 
-
-class EmployeeController extends UserController
+class EmployeeController extends Controller
 {
     
     /**
@@ -16,29 +14,12 @@ class EmployeeController extends UserController
      * @param  int  $id
      * @return json
      */
-    public function updateContact(updateContact $request,int $id)
+    public function updateContact(updateContact $request)
     {
-
-        $user = User::find($id);
-        if (!$user){
-            
-            return $this->userNotFound();
-            
-        }
-
-        $isMyId = auth('sanctum')->id() === $id;
         
-        if(!$isMyId)
-            return response()->json([
-                'message'=>'you are not authorized'
-            ],200);
-
-        
-        $user->contact_details = $request->contact_details ;
-        $user->save();
-
         return response()->json([
-            'message'=>'update contact details successfully'
+            'success' => $isUpdated = User::where('id',auth('sanctum')->id())->update(['contact_details' => $request->contact_details]),
+            'message'=> $isUpdated ? 'update contact details successfully' : 'update contact details Failed'
         ],200);
     }
 }
