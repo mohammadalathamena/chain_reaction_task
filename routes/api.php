@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 
