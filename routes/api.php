@@ -30,9 +30,11 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::middleware(['role:employee'])->group(function(){
         
-        Route::put('/contact',[EmployeeController::class,'updateContact'])->name('update.contact');
+        Route::put('/contact',[EmployeeController::class,'updateContact'])->name('update.contact'); 
     
     });
+
+    hello its me 
 
     Route::post('/logout',[UserController::class,'logout'])->name('logout');
     
