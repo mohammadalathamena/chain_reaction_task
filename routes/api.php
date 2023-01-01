@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
     
     });
 
-    hello its me 
+    hello its me  
 
     Route::post('/logout',[UserController::class,'logout'])->name('logout');
     
